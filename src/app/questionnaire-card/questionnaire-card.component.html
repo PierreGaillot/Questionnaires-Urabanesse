@@ -1,0 +1,26 @@
+<body id="questionnaire-item">
+  <div class="cont-questionnaire-item">
+    <div class="column">
+      <span class="title">
+        {{questionnaire.title}}
+      </span>
+
+      <span class="chip">
+        {{questionnaire.theme}}
+      </span>
+    </div>
+    <div class="column">
+      <div class="row small-gap bigger">
+        <span>{{questionnaire.nbQuestions}}</span>
+        <i class="fa-solid fa-circle-question"></i>
+      </div>
+      <div class="row small-gap">
+        <i class="fa-regular fa-clock"></i>
+        <span>environ {{questionnaire.estimTemps}} min.</span>
+      </div>
+    </div>
+    <div class="circle-btn uppercase">
+      <a href="./index.html">participer</a>
+    </div>
+  </div>
+</body>
