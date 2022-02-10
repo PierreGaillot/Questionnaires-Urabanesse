@@ -1,8 +1,7 @@
 #top-nav-bar{
     justify-content: space-between;
-    padding: 0 2em;
-    height: 5em;
     background-color: #333333;
+    padding: 0.5em 2em;
 }
 
 .parameter{
@@ -13,4 +12,8 @@
 
 .parameter:hover{
     color: #aaaaaa;
+}
+
+.left-side{
+    flex-wrap: wrap;
 }
