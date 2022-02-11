@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Questionnaire } from '../ressources/questionnaire';
 
 @Component({
@@ -8,17 +8,11 @@ import { Questionnaire } from '../ressources/questionnaire';
 })
 export class QuestionnaireCardComponent implements OnInit {
 
-  questionnaire: Questionnaire = {
-    title: 'Le super Titre de mon SUPER questionnaire',
-    details: '(les details de mon SUPER questionnaire)',
-    theme: 'urbain',
-    estimTemps: 15,
-    nbQuestions: 8,
-  }
+  @Input() questionnaire?: Questionnaire;
+
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

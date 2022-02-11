@@ -1,5 +1,11 @@
-<h1 class="center">Espace Habitant</h1>
+<h1 class="intro-title center">Espace Habitant</h1>
+<p class="intro-text center">Pour le moment les questionnaires ci-dessous sont fictifs, et ne sont pas chargé. Lorem
+  ipsum dolor
+  sit amet
+  consectetur, adipisicing elit. Commodi, aliquam eligendi! Corrupti, quibusdam facilis vero ex excepturi alias
+  cupiditate modi?</p>
 
+<span class="separateur"></span>
 
 <div class="global-dashboard row large-gap">
   <div class="column">
@@ -12,7 +18,7 @@
   <div class="column">
     Questionnaires
     <span>
-      6
+      7
     </span>
   </div>
 
@@ -29,15 +35,19 @@
       164
     </span>
   </div>
+
+  <button mat-stroked-button>
+    TEST
+  </button>
+
 </div>
 
 
+
+
 <div class="row-warp">
-  <app-questionnaire-card></app-questionnaire-card>
-  <app-questionnaire-card></app-questionnaire-card>
-  <app-questionnaire-card></app-questionnaire-card>
-  <app-questionnaire-card></app-questionnaire-card>
-  <app-questionnaire-card></app-questionnaire-card>
-  <app-questionnaire-card></app-questionnaire-card>
-  <app-questionnaire-card></app-questionnaire-card>
+  <div *ngFor="let questionnaire of questionnaires">
+    <app-questionnaire-card [questionnaire]="questionnaire"></app-questionnaire-card>
+
+  </div>
 </div>
