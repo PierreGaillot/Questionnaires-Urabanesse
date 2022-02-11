@@ -1,0 +1,32 @@
+<form id="newQuestionnaire" name="new-questionnaire">
+
+    <div class="column small-gap">
+        <input type="text" name="questionnaireTitle" id="_questionnaireTitle"
+            placeholder="L'intitulé de votre nouveau questionnaire ...">
+
+        <input type="text" name="questionnaireSubTitle" id="_questionnaireSubTitle"
+            placeholder="L'intitulé de votre nouveau questionnaire ...">
+    </div>
+    <div class="cont-list">
+        <!-- UNE QUESTION TYPE -->
+        <div class="row item-question">
+            <div class="indexQuestion">1</div>
+            <div class="text-question">
+                <span class="title">Intitulé de la question</span>
+                <span class="">( infos et details de la question )</span>
+                <span class="chip">thème</span>
+            </div>
+            <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+        <!-- AJOUTER UNE QUESTION -->
+        <button class="addNew">
+            <span>+</span>
+        </button>
+
+        <app-new-question></app-new-question>
+    </div>
+
+    <!-- VALIDER LE FORMULAIRE -->
+    <button type="submit" class="" mat-flat-button color="primary">Valider le questionnaire.</button>
+
+</form>

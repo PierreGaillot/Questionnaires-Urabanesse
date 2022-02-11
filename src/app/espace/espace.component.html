@@ -1,5 +1,6 @@
 <h1 class="intro-title center">Espace Habitant</h1>
-<p class="intro-text center">Pour le moment les questionnaires ci-dessous sont fictifs, et ne sont pas chargé. Lorem
+<p class="intro-text center">Pour le moment les questionnaires ci-dessous sont fictifs, ils sont chargés via un fichier
+  mock-questionnaire.ts Lorem
   ipsum dolor
   sit amet
   consectetur, adipisicing elit. Commodi, aliquam eligendi! Corrupti, quibusdam facilis vero ex excepturi alias
@@ -8,44 +9,18 @@
 <span class="separateur"></span>
 
 <div class="global-dashboard row large-gap">
-  <div class="column">
-    Habitants inscrits
+  <div class="column" *ngFor="let info of dashboardInfos">
+    {{info.name}}
     <span>
-      64
+      {{info.data}}
     </span>
   </div>
-
-  <div class="column">
-    Questionnaires
-    <span>
-      7
-    </span>
-  </div>
-
-  <div class="column">
-    Objectif
-    <span>
-      73%
-    </span>
-  </div>
-
-  <div class="column">
-    Questionnaires remplis
-    <span>
-      164
-    </span>
-  </div>
-
-  <button mat-stroked-button>
-    TEST
-  </button>
-
 </div>
 
 
 
 
-<div class="row-warp">
+<div class=" row-warp">
   <div *ngFor="let questionnaire of questionnaires">
     <app-questionnaire-card [questionnaire]="questionnaire"></app-questionnaire-card>
 

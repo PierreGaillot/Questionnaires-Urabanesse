@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -19,7 +18,11 @@ $questionnaire-urbanesse-accent: mat-palette($mat-pink, A200, A100, A400);
 $questionnaire-urbanesse-warn: mat-palette($mat-red);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$questionnaire-urbanesse-theme: mat-light-theme($questionnaire-urbanesse-primary, $questionnaire-urbanesse-accent, $questionnaire-urbanesse-warn);
+$questionnaire-urbanesse-theme: mat-light-theme(
+  $questionnaire-urbanesse-primary,
+  $questionnaire-urbanesse-accent,
+  $questionnaire-urbanesse-warn
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -30,14 +33,12 @@ $questionnaire-urbanesse-theme: mat-light-theme($questionnaire-urbanesse-primary
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Rubik';
+  font-family: "Rubik";
 }
 
 a {
   text-decoration-line: none;
 }
-
-
 
 .column {
   display: flex;
@@ -71,8 +72,8 @@ a {
   text-transform: uppercase;
 }
 
-.center{
-    text-align: center;
+.center {
+  text-align: center;
 }
 
 .circle-btn {
@@ -86,9 +87,9 @@ a {
   border-radius: 2em;
 }
 
-.separateur{
+.separateur {
   display: block;
-  background-color: #4F4F4F;
+  background-color: #4f4f4f;
   height: 0.1em;
   margin: 2.5em 20%;
 }
@@ -102,26 +103,33 @@ a {
 
 .chip {
   padding: 0.1em 0.5em;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 100px;
-  color: #4F4F4F;
+  color: #4f4f4f;
   margin: 5px 0px;
 }
 
-.global-dashboard{
-    justify-content: space-around;
-    flex-wrap: wrap;
-    text-align: center;
-    padding: 1.25em;
-    margin: 2em 10%;
-    background-color: #F2F2F2;
+.cont-list {
+  padding: 0.5em;
+  margin: 1em;
+  border: 0.1em solid #e5e5e5;
+  border-radius: 1em;
 }
 
-.global-dashboard>div>span{
-    font-size: 3em;
+.global-dashboard {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 1.25em;
+  margin: 2em 10%;
+  background-color: #f2f2f2;
 }
 
-.global-dashboard>div{
+.global-dashboard > div > span {
+  font-size: 3em;
+}
+
+.global-dashboard > div {
   height: 100%;
   width: 30%;
 }
