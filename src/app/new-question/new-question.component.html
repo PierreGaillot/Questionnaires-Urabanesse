@@ -1,56 +1,103 @@
-<div id="new-question" class="column cont-list">
-    <input type=" text" name="newQuestionName" class="title">
-    <input type="text" name="newQuestionDetails">
-    <select name="thème" id="thème">
-        <option value="null">-- Choisissez un thème --</option>
-        <option value="urbanisme">urbanisme</option>
-        <option value="environnement">environnement</option>
-        <option value="quartier">quartier</option>
-    </select>
-    <select name="type" id="type" [(ngModel)]="questionType">
-        <option value="null">-- choisissez un type de question --</option>
-        <option value="radio">Une seule reponse possible</option>
-        <option value="checkbox">Plusieurs reponses possibles</option>
-        <option value="boolean">Oui où non, vrai ou faux ...</option>
-        <option value="inputText">Un champ de texte</option>
-        <option value="note">Une note entre deux valeurs</option>
-    </select>
+<form id="new-question" class="column cont-list">
+
+    <mat-form-field appearance="fill">
+        <mat-label>titre de la question*</mat-label>
+        <input matInput type=" text" name="newQuestionName" class="title">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>détails</mat-label>
+        <input matInput type=" text" name="newQuestionDetails">
+    </mat-form-field>
+
+    <div class="row-group small-gap">
+        <mat-form-field>
+            <mat-label>Thème</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let theme of themes" [value]="theme.value">
+                    {{theme.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Type*</mat-label>
+            <mat-select (selectionChange)="assignTypeChoose($event.value)">
+                <mat-option *ngFor="let type of types" [value]="type.value" name="type">
+                    {{type.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
 
     <!-- RADIO -->
-    <div *ngIf="questionType === 'radio'" class="newReponse radio">
-        <h3>Une seule reponse possible</h3>
-        <label for="labelRadio">Reponse - 1</label>
-        <input type="text" name="labelRadio">
+    <div *ngIf="typeChoose === 'radio'" class="newReponse radio">
+        <p>Une seule reponse possible</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Reponse 1</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Reponse 2</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Reponse 3</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <div class="row-group small-gap">
+            <button mat-stroked-button>Ajouter une reponse</button>
+            <button mat-flat-button color="primary">Valider la question</button>
+        </div>
     </div>
 
     <!-- CHECKBOX -->
-    <div *ngIf="questionType === 'checkbox'" class="newReponse checkbox">
-        <h3>Plusieurs reponses sont possibles</h3>
-        <label for="labelCheckbox">Reponse - 1</label>
-        <input type="text" name="labelCheckbox">
+    <div *ngIf="typeChoose === 'checkbox'" class="newReponse checkbox">
+        <p>Plusieurs reponses sont possibles</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Reponse 1</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Reponse 2</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Reponse 3</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <div class="row-group small-gap">
+            <button mat-stroked-button>Ajouter une reponse</button>
+            <button mat-flat-button color="primary">Valider la question</button>
+        </div>
     </div>
 
     <!-- BOOLEAN -->
-    <div *ngIf="questionType === 'boolean'" class="newReponse boolean">
-        <h3>Seule deux reponses sont possibles</h3>
-        <label for="labelBooleanTrue">oui</label>
-        <input type="text" name="labelBooleanTrue">
-        <label for="labelBooleanFasle">non</label>
-        <input type="text" name="labelBooleanFalse">
+    <div *ngIf="typeChoose === 'boolean'" class="newReponse boolean">
+        <mat-form-field>
+            <mat-label>Oui</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Non</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
     </div>
 
     <!-- INPUTTEXT -->
-    <div *ngIf="questionType === 'inputText'" class="newReponse inputText">
-        <h3>Un champ de texte.</h3>
-        <label for="labelInputText">details de la question (ex : en quelques mots ... )</label>
-        <input type="text" name="labelInputText">
+    <div *ngIf="typeChoose === 'inputText'" class="newReponse inputText">
+        <p>Un champ de texte.</p>
+        <mat-form-field>
+            <mat-label>Details</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
     </div>
 
     <!-- NOTE -->
-    <div *ngIf="questionType === 'note'" class="newReponse note">
-        <h3>Une note entre deux valeurs</h3>
+    <div *ngIf="typeChoose === 'note'" class="newReponse note">
+        <p>Une note entre deux valeurs</p>
         <label for="labelNote">details de la question (ex : en quelques mots ... )</label>
         <input type="text" name="labelNote">
     </div>
 
-</div>
+</form>

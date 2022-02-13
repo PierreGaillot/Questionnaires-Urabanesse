@@ -7,10 +7,11 @@ import { EspaceComponent } from './espace/espace.component';
 import { QuestionnaireCardComponent } from './questionnaire-card/questionnaire-card.component';
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { NewQuestionnaireComponent } from './new-questionnaire/new-questionnaire.component';
 import { NewQuestionComponent } from './new-question/new-question.component';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    FormsModule
+    MatInputModule,
+    FormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

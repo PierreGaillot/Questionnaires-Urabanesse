@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Espace } from '../espace';
 import { QUESTIONNAIRES } from '../mock-questionnaires';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +13,7 @@ export class EspaceComponent implements OnInit {
   questionnaires = QUESTIONNAIRES;
   dashboardInfos = [
     { name: "Habitants inscrits", data: 64 },
-    { name: "Questionnaires", data: 7 },
+    { name: "Questionnaires", data: this.questionnaires.length },
     { name: "Objectif", data: 73 + "%" },
     { name: "Questionnaires remplis", data: 164 },
   ]

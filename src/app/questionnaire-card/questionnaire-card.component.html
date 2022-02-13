@@ -1,3 +1,5 @@
+<!-- QUESTIONNAIRE CARD COMPONENT -->
+
 <body id="questionnaire-item">
   <div class="cont-questionnaire-item">
     <div class="column">
@@ -19,8 +21,17 @@
         <span>environ {{questionnaire.estimTemps}} min.</span>
       </div>
     </div>
-    <div class="circle-btn uppercase">
+
+    <div class="circle-btn uppercase participer" [ngClass]="{hide: isAnswered === true}">
       <a href="./index.html">participer</a>
     </div>
   </div>
+
+  <div class="column uppercase showResult" [ngClass]="{hide: !isAnswered}">
+    <p>déjà repondu</p>
+    <button class=" showResult-btn uppercase">
+      Voir des resultats
+    </button>
+  </div>
+
 </body>

@@ -11,7 +11,13 @@ export class QuestionnaireCardComponent implements OnInit {
   @Input() questionnaire?: Questionnaire;
 
 
-  constructor() { }
+  isAnswered: boolean;
+
+  constructor(
+
+  ) {
+    this.isAnswered = Math.random() > 0.5 ? true : false;
+  }
 
   ngOnInit() {
   }

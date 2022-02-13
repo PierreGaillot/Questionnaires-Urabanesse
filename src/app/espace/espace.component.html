@@ -22,7 +22,8 @@
 
 <div class=" row-warp">
   <div *ngFor="let questionnaire of questionnaires">
-    <app-questionnaire-card [questionnaire]="questionnaire"></app-questionnaire-card>
+    <app-questionnaire-card [questionnaire]="questionnaire" [ngClass]="{hideResult: questionnaire.isAnswered}">
+    </app-questionnaire-card>
 
   </div>
 </div>
