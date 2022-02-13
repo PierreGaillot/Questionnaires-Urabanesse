@@ -1,7 +1,9 @@
 #new-question {
     align-items: stretch;
 }
-
+input {
+    flex-grow: 2;
+}
 .newReponse {
     display: flex;
     flex-direction: column;
@@ -10,13 +12,10 @@
     gap: 0.5em;
 }
 
-.row-group {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+.radio {
 }
 
-.radio {
+.input-reponse {
 }
 
 .checkbox {

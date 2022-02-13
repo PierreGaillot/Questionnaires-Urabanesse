@@ -22,12 +22,12 @@
       </div>
     </div>
 
-    <div class="circle-btn uppercase participer" [ngClass]="{hide: isAnswered === true}">
+    <div *ngIf="isAnswered" class="circle-btn uppercase participer">
       <a href="./index.html">participer</a>
     </div>
   </div>
 
-  <div class="column uppercase showResult" [ngClass]="{hide: !isAnswered}">
+  <div class="column uppercase showResult" *ngIf="!isAnswered">
     <p>déjà repondu</p>
     <button class=" showResult-btn uppercase">
       Voir des resultats

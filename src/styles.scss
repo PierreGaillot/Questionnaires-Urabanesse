@@ -52,6 +52,13 @@ a {
   align-items: center;
 }
 
+.row-group {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-evenly;
+}
+
 .row-warp {
   display: flex;
   flex-direction: row;

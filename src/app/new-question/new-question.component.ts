@@ -1,3 +1,4 @@
+import { ArrayType } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 interface Theme {
@@ -7,6 +8,14 @@ interface Theme {
 interface Type {
   value: string;
   viewValue: string;
+}
+
+interface Question {
+  name: string;
+  details: string;
+  theme: string;
+  type: string;
+  reponses: any;
 }
 
 
@@ -19,13 +28,18 @@ interface Type {
 export class NewQuestionComponent implements OnInit {
 
   typeChoose: any;
+  reponses = ['Réponse 1', 'Réponse 2', 'Réponse 3'];
 
   themes: Theme[] = [
     { value: 'urbanisme' },
     { value: 'environnement' },
     { value: 'quartier' },
     { value: 'civisme' },
-  ]
+  ];
+
+  questions: Question[] = [
+    { name: 'string', details: 'string', theme: 'Theme', type: 'string', reponses: ['Réponse 1', 'Réponse 2', 'Réponse 3'] }
+  ];
 
   types: Type[] = [
     { value: 'radio', viewValue: 'Une seule reponse possible' },
@@ -44,5 +58,14 @@ export class NewQuestionComponent implements OnInit {
   assignTypeChoose(event: Event) {
     console.log(event);
     this.typeChoose = event;
+  }
+
+  addReponse(i: number) {
+    this.reponses.push("Réponse " + (this.reponses.length + 1))
+  }
+
+  deleteReponse(i: number) {
+
+    console.log(this.reponses.splice(i, 1))
   }
 }

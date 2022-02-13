@@ -18,6 +18,8 @@ export class EspaceComponent implements OnInit {
     { name: "Questionnaires remplis", data: 164 },
   ]
 
+
+
   espace: Espace = {
     id: 45,
     user: "Habitant",

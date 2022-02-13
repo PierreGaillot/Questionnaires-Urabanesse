@@ -11,42 +11,40 @@
         <input matInput type=" text" name="newQuestionDetails">
     </mat-form-field>
 
-    <div class="row-group small-gap">
-        <mat-form-field>
-            <mat-label>Thème</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let theme of themes" [value]="theme.value">
-                    {{theme.value}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-            <mat-label>Type*</mat-label>
-            <mat-select (selectionChange)="assignTypeChoose($event.value)">
-                <mat-option *ngFor="let type of types" [value]="type.value" name="type">
-                    {{type.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
+    <mat-form-field>
+        <mat-label>Thème</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let theme of themes" [value]="theme.value">
+                {{theme.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Type*</mat-label>
+        <mat-select (selectionChange)="assignTypeChoose($event.value)">
+            <mat-option *ngFor="let type of types" [value]="type.value" name="type">
+                {{type.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 
     <!-- RADIO -->
     <div *ngIf="typeChoose === 'radio'" class="newReponse radio">
         <p>Une seule reponse possible</p>
-        <mat-form-field appearance="fill">
-            <mat-label>Reponse 1</mat-label>
-            <input matInput type=" text" name="newQuestionDetails">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Reponse 2</mat-label>
-            <input matInput type=" text" name="newQuestionDetails">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Reponse 3</mat-label>
-            <input matInput type=" text" name="newQuestionDetails">
-        </mat-form-field>
+
+        <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
+            <mat-form-field appearance="fill">
+                <mat-label>Réponse {{i+1}}</mat-label>
+                <input matInput type=" text" name="newQuestionDetails">
+            </mat-form-field>
+            <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
+                (click)="deleteReponse(i)">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+        </div>
+
         <div class="row-group small-gap">
-            <button mat-stroked-button>Ajouter une reponse</button>
+            <button mat-stroked-button (click)="addReponse(0)">Ajouter une reponse</button>
             <button mat-flat-button color="primary">Valider la question</button>
         </div>
     </div>
@@ -54,20 +52,19 @@
     <!-- CHECKBOX -->
     <div *ngIf="typeChoose === 'checkbox'" class="newReponse checkbox">
         <p>Plusieurs reponses sont possibles</p>
-        <mat-form-field appearance="fill">
-            <mat-label>Reponse 1</mat-label>
-            <input matInput type=" text" name="newQuestionDetails">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Reponse 2</mat-label>
-            <input matInput type=" text" name="newQuestionDetails">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Reponse 3</mat-label>
-            <input matInput type=" text" name="newQuestionDetails">
-        </mat-form-field>
+        <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
+            <mat-form-field appearance="fill">
+                <mat-label>Réponse {{i+1}}</mat-label>
+                <input matInput type=" text" name="newQuestionDetails">
+            </mat-form-field>
+            <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
+                (click)="deleteReponse(i)">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+        </div>
+
         <div class="row-group small-gap">
-            <button mat-stroked-button>Ajouter une reponse</button>
+            <button mat-stroked-button (click)="addReponse(0)">Ajouter une reponse</button>
             <button mat-flat-button color="primary">Valider la question</button>
         </div>
     </div>
@@ -82,6 +79,9 @@
             <mat-label>Non</mat-label>
             <input matInput type=" text" name="newQuestionDetails">
         </mat-form-field>
+        <div class="row small-gap">
+            <button mat-flat-button color="primary">Valider la question</button>
+        </div>
     </div>
 
     <!-- INPUTTEXT -->
@@ -91,6 +91,9 @@
             <mat-label>Details</mat-label>
             <input matInput type=" text" name="newQuestionDetails">
         </mat-form-field>
+        <div class="row small-gap">
+            <button mat-flat-button color="primary">Valider la question</button>
+        </div>
     </div>
 
     <!-- NOTE -->
@@ -98,6 +101,9 @@
         <p>Une note entre deux valeurs</p>
         <label for="labelNote">details de la question (ex : en quelques mots ... )</label>
         <input type="text" name="labelNote">
+        <div class="row small-gap">
+            <button mat-flat-button color="primary">Valider la question</button>
+        </div>
     </div>
 
 </form>
