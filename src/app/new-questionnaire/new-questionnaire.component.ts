@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewQuestionnaireComponent implements OnInit {
 
+  isEditNewQuestion: boolean = false;
+
   constructor(
   ) { }
 

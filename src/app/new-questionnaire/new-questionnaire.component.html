@@ -1,13 +1,16 @@
 <form id="newQuestionnaire" name="new-questionnaire">
 
-    <div class="column small-gap">
-        <input type="text" name="questionnaireTitle" id="_questionnaireTitle"
-            placeholder="L'intitulé de votre nouveau questionnaire ...">
 
-        <input type="text" name="questionnaireSubTitle" id="_questionnaireSubTitle"
-            placeholder="L'intitulé de votre nouveau questionnaire ...">
-    </div>
-    <div class="cont-list">
+    <mat-form-field appearance="fill">
+        <mat-label>Intitulé du questionnaire*</mat-label>
+        <input matInput type=" text" name="questionnaireName">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Details</mat-label>
+        <input matInput type=" text" name="questionnaireDetail">
+    </mat-form-field>
+    <div class="cont-list questions-list">
         <!-- UNE QUESTION TYPE -->
         <div class="row item-question">
             <div class="indexQuestion">1</div>
@@ -16,14 +19,26 @@
                 <span class="">( infos et details de la question )</span>
                 <span class="chip">thème</span>
             </div>
-            <i class="fa-solid fa-pen-to-square"></i>
+            <button mat-icon-button color="primary" aria-label="éditer la question">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
         </div>
-        <!-- AJOUTER UNE QUESTION -->
-        <button class="addNew">
-            <span>+</span>
-        </button>
 
-        <app-new-question></app-new-question>
+        <app-new-question *ngIf="isEditNewQuestion"></app-new-question>
+
+        <!-- AJOUTER UNE QUESTION -->
+        <span class="add-btn" *ngIf="!isEditNewQuestion">
+            <button mat-icon-button color="primary" aria-label="Ajouter une question"
+                (click)="isEditNewQuestion = !isEditNewQuestion">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </span>
+
+        <div class="">
+            <button type="submit" class="quit-question-btn" mat-stroked-button color="warn"
+                (click)="isEditNewQuestion = !isEditNewQuestion" *ngIf="isEditNewQuestion">Annuler la
+                question.</button>
+        </div>
     </div>
 
     <!-- VALIDER LE FORMULAIRE -->
