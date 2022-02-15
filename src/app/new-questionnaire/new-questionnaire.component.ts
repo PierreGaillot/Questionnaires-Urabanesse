@@ -27,14 +27,16 @@ export class NewQuestionnaireComponent implements OnInit {
 
   }
 
-  onQuestionAdded(questionData: { questionName: string, questionDetail: string, questionTheme: string, questionType: string }) {
+  onQuestionAdded(questionData: { questionName: string, questionDetail: string, questionTheme: string, questionType: string, questionReponses: any }) {
     this.questions.push({
       name: questionData.questionName,
       detail: questionData.questionDetail,
       theme: questionData.questionTheme,
-      type: questionData.questionType
+      type: questionData.questionType,
+      reponses: questionData.questionReponses
     });
     this.isEditNewQuestion = false
+    console.log(this.questions)
   }
 
 }

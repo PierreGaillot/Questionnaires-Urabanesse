@@ -43,15 +43,22 @@
     <div *ngIf="typeChoose === 'radio'" class="newReponse radio">
         <p>Parmi toutes les réponses proposées, l'habitant ne pourra en choisir qu'une. </p>
         <p class="detail-type">( Minimum : 3 réponses possibles )</p>
+
         <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
+
+            <!-- ? CHAMP DE REPONSE -->
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Réponse {{i+1}}</mat-label>
-                <input matInput type=" text" name="newQuestionDetails">
+                <input matInput type="text" (input)="assignReponse($event, i)">
             </mat-form-field>
+
+
+            <!-- ! BOUTON SUPPRIMER -->
             <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
                 (click)="deleteReponse(i)">
                 <i class="fa-solid fa-trash-can"></i>
             </button>
+
         </div>
 
         <button mat-stroked-button (click)="addReponse()" class="full-width">Ajouter une reponse</button>
@@ -65,7 +72,7 @@
         <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Réponse {{i+1}}</mat-label>
-                <input matInput type=" text" name="newQuestionDetails">
+                <input matInput type=" text">
             </mat-form-field>
             <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
                 (click)="deleteReponse(i)">
@@ -86,11 +93,11 @@
         <div class="row-group large-gap">
             <mat-form-field class="full-width">
                 <mat-label>Oui</mat-label>
-                <input matInput type=" text" name="newQuestionDetails" name="Yes">
+                <input matInput type=" text" name="Yes">
             </mat-form-field>
             <mat-form-field class="full-width">
                 <mat-label>Non</mat-label>
-                <input matInput type=" text" name="newQuestionDetails" name="No">
+                <input matInput type=" text" name="No">
             </mat-form-field>
         </div>
 
@@ -101,7 +108,7 @@
         <p>Un champ de texte.</p>
         <mat-form-field>
             <mat-label>Details</mat-label>
-            <input matInput type=" text" name="newQuestionDetails">
+            <input matInput type=" text">
         </mat-form-field>
         <div class="row small-gap">
         </div>
