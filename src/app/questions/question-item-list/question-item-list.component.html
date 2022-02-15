@@ -1,0 +1,11 @@
+<div class="row item-question">
+    <div class="indexQuestion">{{indexQuestion + 1}}</div>
+    <div class="text-question">
+        <span class="title">{{ question.name }}</span>
+        <span *ngIf="question.detail !== ''">( {{ question.detail }} )</span>
+        <span class="chip">{{ question.theme }}</span>
+    </div>
+    <button mat-icon-button color="primary" aria-label="éditer la question">
+        <i class="fa-solid fa-pen-to-square"></i>
+    </button>
+</div>

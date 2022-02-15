@@ -50,11 +50,5 @@ export const QUESTIONNAIRES: Questionnaire[] = [
         nbQuestions: 13,
     },
 
-    {
-        title: 'Est-ce que vraiment, c\'était "mieux" avant ?',
-        details: '(vous avez 4 heures)',
-        theme: 'urbain',
-        estimTemps: 15,
-        nbQuestions: 8,
-    },
+
 ]

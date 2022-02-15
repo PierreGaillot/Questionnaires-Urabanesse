@@ -1,0 +1,139 @@
+<form id="new-question" class="column cont-list">
+
+    <!--! NAME de la  NOUVELLE QUESTION -->
+    <mat-form-field appearance="fill">
+        <mat-label>titre de la question</mat-label>
+        <input matInput type=" email" [formControl]="nameFormControl" required>
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+            Vous devez <strong>Obligatoirement</strong> ajouter un titre.
+        </mat-error>
+    </mat-form-field>
+
+    <!--! DETAIL de la  NOUVELLE QUESTION -->
+    <mat-form-field>
+        <mat-label>Détails</mat-label>
+        <input matInput type=" text" name="newQuestionDetails" [formControl]="detailFormControl">
+    </mat-form-field>
+
+    <!--! THEME de la  NOUVELLE QUESTION -->
+    <mat-form-field>
+        <mat-label>Thème</mat-label>
+        <mat-select [formControl]="themeFormControl">
+            <mat-option *ngFor="let theme of themes" [value]="theme.value">
+                {{theme.value}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!--! TYPE de la  NOUVELLE QUESTION -->
+    <mat-form-field>
+        <mat-label>Type</mat-label>
+        <mat-select (selectionChange)="assignTypeChoose($event.value)" [formControl]="typeFormControl" required>
+            <mat-option *ngFor="let type of types" [value]="type.value" name="type">
+                {{type.viewValue}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="typeFormControl.hasError('required')">
+            Vous devez <strong>obligatoirement</strong> choisir un type de question.
+        </mat-error>
+    </mat-form-field>
+
+
+    <!--? RADIO -->
+    <div *ngIf="typeChoose === 'radio'" class="newReponse radio">
+        <p>Parmi toutes les réponses proposées, l'habitant ne pourra en choisir qu'une. </p>
+        <p class="detail-type">( Minimum : 3 réponses possibles )</p>
+        <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Réponse {{i+1}}</mat-label>
+                <input matInput type=" text" name="newQuestionDetails">
+            </mat-form-field>
+            <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
+                (click)="deleteReponse(i)">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+        </div>
+
+        <button mat-stroked-button (click)="addReponse()" class="full-width">Ajouter une reponse</button>
+
+    </div>
+
+    <!--? CHECKBOX -->
+    <div *ngIf="typeChoose === 'checkbox'" class="newReponse checkbox">
+        <p>Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs. </p>
+        <p class="detail-type">( Minimum : 3 réponses possibles )</p>
+        <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Réponse {{i+1}}</mat-label>
+                <input matInput type=" text" name="newQuestionDetails">
+            </mat-form-field>
+            <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
+                (click)="deleteReponse(i)">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+        </div>
+
+        <div class="row-group small-gap">
+            <button mat-stroked-button (click)="addReponse()" class="full-width">Ajouter une reponse</button>
+        </div>
+    </div>
+
+    <!--? BOOLEAN -->
+    <div *ngIf="typeChoose === 'boolean'" class="newReponse boolean">
+        <p>Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs.</p>
+        <p class="detail-type">( Uniquement 2 réponses possibles )</p>
+
+        <div class="row-group large-gap">
+            <mat-form-field class="full-width">
+                <mat-label>Oui</mat-label>
+                <input matInput type=" text" name="newQuestionDetails" name="Yes">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Non</mat-label>
+                <input matInput type=" text" name="newQuestionDetails" name="No">
+            </mat-form-field>
+        </div>
+
+    </div>
+
+    <!--? INPUTTEXT -->
+    <div *ngIf="typeChoose === 'inputText'" class="newReponse inputText">
+        <p>Un champ de texte.</p>
+        <mat-form-field>
+            <mat-label>Details</mat-label>
+            <input matInput type=" text" name="newQuestionDetails">
+        </mat-form-field>
+        <div class="row small-gap">
+        </div>
+    </div>
+
+    <!--? NOTE -->
+    <div *ngIf="typeChoose === 'note'" class="newReponse note">
+        <p>Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs.</p>
+        <p class="detail-type">( Uniquement 2 réponses possibles )</p>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Note minimum</mat-label>
+            <mat-select required>
+                <mat-option value="0">0</mat-option>
+                <mat-option value="1">1</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Note Maximum</mat-label>
+            <mat-select required>
+                <mat-option value="5">5</mat-option>
+                <mat-option value="10">10</mat-option>
+                <mat-option value="20">20</mat-option>
+                <mat-option value="100">100</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+
+    <button mat-flat-button (click)="submitQuestion()" type="button" color="primary"
+        [disabled]="nameFormControl.invalid || typeFormControl.invalid">Valider la
+        question</button>
+
+</form>

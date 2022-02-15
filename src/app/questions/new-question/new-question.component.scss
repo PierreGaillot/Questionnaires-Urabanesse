@@ -16,6 +16,10 @@ input {
 }
 
 .input-reponse {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .checkbox {
@@ -28,4 +32,15 @@ input {
 }
 
 .note {
+}
+
+.detail-type {
+    font-style: italic;
+    font-size: 0.85em;
+    color: rgb(92, 92, 92);
+    margin-bottom: 1em;
+}
+
+.full-width {
+    width: 100%;
 }

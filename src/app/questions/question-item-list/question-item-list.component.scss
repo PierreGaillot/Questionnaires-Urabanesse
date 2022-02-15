@@ -1,0 +1,20 @@
+.item-question {
+    justify-content: space-between;
+    background-color: #f3f3f3;
+    border-radius: 0.25em;
+    padding: 1em;
+    margin-bottom: 0.5em;
+}
+
+.text-question {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 2;
+    align-items: flex-start;
+}
+
+.indexQuestion {
+    padding: 0.5em 1em 0.5em 0.5em;
+    font-size: 1.5em;
+}

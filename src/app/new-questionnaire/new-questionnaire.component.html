@@ -3,28 +3,23 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Intitulé du questionnaire*</mat-label>
-        <input matInput type=" text" name="questionnaireName">
+        <input matInput type=" text" name="questionnaireName" [formControl]="nameFormControl">
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+            Vous devez <strong>Obligatoirement</strong> ajouter un titre.
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Details</mat-label>
+        <mat-label>Détails</mat-label>
         <input matInput type=" text" name="questionnaireDetail">
     </mat-form-field>
-    <div class="cont-list questions-list">
+    <div class="cont-list small-gap questions-list">
         <!-- UNE QUESTION TYPE -->
-        <div class="row item-question">
-            <div class="indexQuestion">1</div>
-            <div class="text-question">
-                <span class="title">Intitulé de la question</span>
-                <span class="">( infos et details de la question )</span>
-                <span class="chip">thème</span>
-            </div>
-            <button mat-icon-button color="primary" aria-label="éditer la question">
-                <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-        </div>
+        <app-question-item-list *ngFor="let question of questions; let i = index" [question]="question"
+            [indexQuestion]="i">
+        </app-question-item-list>
 
-        <app-new-question *ngIf="isEditNewQuestion"></app-new-question>
+        <app-new-question *ngIf="isEditNewQuestion" (questionCreated)="onQuestionAdded($event)"></app-new-question>
 
         <!-- AJOUTER UNE QUESTION -->
         <span class="add-btn" *ngIf="!isEditNewQuestion">
@@ -34,14 +29,15 @@
             </button>
         </span>
 
-        <div class="">
-            <button type="submit" class="quit-question-btn" mat-stroked-button color="warn"
-                (click)="isEditNewQuestion = !isEditNewQuestion" *ngIf="isEditNewQuestion">Annuler la
-                question.</button>
-        </div>
+
+        <button type="submit" class="quit-question-btn" mat-stroked-button color="warn"
+            (click)="isEditNewQuestion = !isEditNewQuestion" *ngIf="isEditNewQuestion">Annuler la
+            question.</button>
     </div>
 
     <!-- VALIDER LE FORMULAIRE -->
-    <button type="submit" class="" mat-flat-button color="primary">Valider le questionnaire.</button>
-
+    <button (click)="sendQuestionnaire(nameForm)" type="button" mat-flat-button color="primary"
+        [disabled]="nameFormControl.invalid">Valider le
+        questionnaire.
+    </button>
 </form>

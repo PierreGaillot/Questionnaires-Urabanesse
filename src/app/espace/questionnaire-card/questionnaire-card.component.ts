@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Questionnaire } from '../ressources/questionnaire';
-
+import { Questionnaire } from 'src/app/ressources/questionnaire';
 @Component({
   selector: 'app-questionnaire-card',
   templateUrl: './questionnaire-card.component.html',
@@ -9,6 +8,7 @@ import { Questionnaire } from '../ressources/questionnaire';
 export class QuestionnaireCardComponent implements OnInit {
 
   @Input() questionnaire?: Questionnaire;
+
 
 
   isAnswered: boolean;

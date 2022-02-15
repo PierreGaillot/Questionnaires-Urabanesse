@@ -1,5 +1,6 @@
-import { ArrayType } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+
 
 interface Theme {
   value: string;
@@ -10,13 +11,6 @@ interface Type {
   viewValue: string;
 }
 
-interface Question {
-  name: string;
-  details: string;
-  theme: string;
-  type: string;
-  reponses: any;
-}
 
 
 @Component({
@@ -27,8 +21,21 @@ interface Question {
 
 export class NewQuestionComponent implements OnInit {
 
+  @Output() questionCreated = new EventEmitter<{ questionName: string, questionDetail: string, questionTheme: string, questionType: string }>();
+
+  nameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  detailFormControl = new FormControl('');
+  themeFormControl = new FormControl('');
+  typeFormControl = new FormControl('', [Validators.required]);
+
+  nameForm: string;
   typeChoose: any;
+  minNote: any;
+  maxNote: any;
+
   reponses = ['Réponse 1', 'Réponse 2', 'Réponse 3'];
+  selectedTheme: Theme;
+
 
   themes: Theme[] = [
     { value: 'urbanisme' },
@@ -37,9 +44,7 @@ export class NewQuestionComponent implements OnInit {
     { value: 'civisme' },
   ];
 
-  questions: Question[] = [
-    { name: 'string', details: 'string', theme: 'Theme', type: 'string', reponses: ['Réponse 1', 'Réponse 2', 'Réponse 3'] }
-  ];
+  questions = [];
 
   types: Type[] = [
     { value: 'radio', viewValue: 'Une seule reponse possible' },
@@ -50,22 +55,27 @@ export class NewQuestionComponent implements OnInit {
   ]
 
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
   };
 
   assignTypeChoose(event: Event) {
-    console.log(event);
     this.typeChoose = event;
   }
+
 
   addReponse(i: number) {
     this.reponses.push("Réponse " + (this.reponses.length + 1))
   }
 
   deleteReponse(i: number) {
-
     console.log(this.reponses.splice(i, 1))
+  }
+
+  submitQuestion() {
+    this.questionCreated.emit({ questionName: this.nameFormControl.value, questionDetail: this.detailFormControl.value, questionTheme: this.themeFormControl.value, questionType: this.typeFormControl.value })
   }
 }
