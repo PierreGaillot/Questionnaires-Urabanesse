@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 
@@ -13,11 +13,13 @@ export class NewQuestionnaireComponent implements OnInit {
 
   //* ------- INPUT Validator 
   nameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  detailFormControl = new FormControl('');
 
 
   isEditNewQuestion: boolean = true;
 
   questions = [];
+  questionnaires = [];
 
 
   constructor(
@@ -37,6 +39,15 @@ export class NewQuestionnaireComponent implements OnInit {
     });
     this.isEditNewQuestion = false
     console.log(this.questions)
+  }
+
+  sendQuestionnaire() {
+    this.questionnaires.push({
+      name: this.nameFormControl.value,
+      detail: this.detailFormControl.value,
+      question: this.questions
+    })
+    console.log(this.questionnaires)
   }
 
 }

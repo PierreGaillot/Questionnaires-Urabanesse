@@ -3,7 +3,7 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Intitulé du questionnaire*</mat-label>
-        <input matInput type=" text" name="questionnaireName" [formControl]="nameFormControl">
+        <input matInput type=" text" [formControl]="nameFormControl">
         <mat-error *ngIf="nameFormControl.hasError('required')">
             Vous devez <strong>Obligatoirement</strong> ajouter un titre.
         </mat-error>
@@ -11,10 +11,11 @@
 
     <mat-form-field>
         <mat-label>Détails</mat-label>
-        <input matInput type=" text" name="questionnaireDetail">
+        <input matInput type=" text" [formControl]="detailFormControl">
     </mat-form-field>
+    <h3>{{questions.length}} Question(s)</h3>
     <div class="cont-list small-gap questions-list">
-        <!-- UNE QUESTION TYPE -->
+        <!-- QUESTIONS LIST -->
         <app-question-item-list *ngFor="let question of questions; let i = index" [question]="question"
             [indexQuestion]="i">
         </app-question-item-list>
@@ -37,7 +38,7 @@
 
     <!-- VALIDER LE FORMULAIRE -->
     <button (click)="sendQuestionnaire(nameForm)" type="button" mat-flat-button color="primary"
-        [disabled]="nameFormControl.invalid">Valider le
+        [disabled]="nameFormControl.invalid || questions.length < 1">Valider le
         questionnaire.
     </button>
 </form>

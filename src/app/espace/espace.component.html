@@ -12,6 +12,9 @@
 </div>
 <span class="separateur"></span>
 
+<div class="card-questionnaire">
+  <app-new-questionnaire></app-new-questionnaire>
+</div>
 
 <div class="global-dashboard row large-gap">
   <div class="column" *ngFor="let info of dashboardInfos">
@@ -24,11 +27,9 @@
 
 
 
-
 <div class=" row-warp">
   <div *ngFor="let questionnaire of questionnaires">
     <app-questionnaire-card [questionnaire]="questionnaire" [ngClass]="{hideResult: questionnaire.isAnswered}">
     </app-questionnaire-card>
-
   </div>
 </div>

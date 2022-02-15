@@ -42,19 +42,24 @@
     <!--? RADIO -->
     <div *ngIf="typeChoose === 'radio'" class="newReponse radio">
         <p>Parmi toutes les réponses proposées, l'habitant ne pourra en choisir qu'une. </p>
-        <p class="detail-type">( Minimum : 3 réponses possibles )</p>
+        <p class="detail-type">( Minimum : 2 réponses possibles )</p>
 
         <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
 
             <!-- ? CHAMP DE REPONSE -->
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Réponse {{i+1}}</mat-label>
-                <input matInput type="text" (input)="assignReponse($event, i)">
+                <input matInput type="text" (input)="assignReponse($event, i)" [formControl]="reponseFormControl"
+                    required>
+                <mat-error *ngIf="reponseFormControl.hasError('required')">
+                    Vous devez <strong>obligatoirement</strong> ajouter une <strong>réponse</strong> d'au moins 3
+                    lettres.
+                </mat-error>
             </mat-form-field>
 
 
             <!-- ! BOUTON SUPPRIMER -->
-            <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
+            <button *ngIf="i > 1" mat-icon-button color="warn" aria-label="Supprimer une reponse."
                 (click)="deleteReponse(i)">
                 <i class="fa-solid fa-trash-can"></i>
             </button>
@@ -68,40 +73,35 @@
     <!--? CHECKBOX -->
     <div *ngIf="typeChoose === 'checkbox'" class="newReponse checkbox">
         <p>Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs. </p>
-        <p class="detail-type">( Minimum : 3 réponses possibles )</p>
+        <p class="detail-type">( Minimum : 2 réponses possibles )</p>
+
         <div class="input-reponse" *ngFor="let reponse of reponses ; let i = index">
+
+            <!-- ? CHAMP DE REPONSE -->
             <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Réponse {{i+1}}</mat-label>
-                <input matInput type=" text">
+                <input matInput type="text" (input)="assignReponse($event, i)" [formControl]="reponseFormControl"
+                    required>
+                <mat-error *ngIf="reponseFormControl.hasError('required')">
+                    Vous devez <strong>obligatoirement</strong> ajouter une <strong>réponse</strong> d'au moins <strong>
+                        3 lettres</strong>.
+
+                </mat-error>
             </mat-form-field>
-            <button *ngIf="i >= 3" mat-icon-button color="warn" aria-label="Supprimer une reponse."
+
+
+            <!-- ! BOUTON SUPPRIMER -->
+            <button *ngIf="i > 1" mat-icon-button color="warn" aria-label="Supprimer une reponse."
                 (click)="deleteReponse(i)">
                 <i class="fa-solid fa-trash-can"></i>
             </button>
-        </div>
 
+        </div>
         <div class="row-group small-gap">
             <button mat-stroked-button (click)="addReponse()" class="full-width">Ajouter une reponse</button>
         </div>
     </div>
 
-    <!--? BOOLEAN -->
-    <div *ngIf="typeChoose === 'boolean'" class="newReponse boolean">
-        <p>Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs.</p>
-        <p class="detail-type">( Uniquement 2 réponses possibles )</p>
-
-        <div class="row-group large-gap">
-            <mat-form-field class="full-width">
-                <mat-label>Oui</mat-label>
-                <input matInput type=" text" name="Yes">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Non</mat-label>
-                <input matInput type=" text" name="No">
-            </mat-form-field>
-        </div>
-
-    </div>
 
     <!--? INPUTTEXT -->
     <div *ngIf="typeChoose === 'inputText'" class="newReponse inputText">
@@ -140,7 +140,6 @@
 
 
     <button mat-flat-button (click)="submitQuestion()" type="button" color="primary"
-        [disabled]="nameFormControl.invalid || typeFormControl.invalid">Valider la
+        [disabled]="nameFormControl.invalid || typeFormControl.invalid || reponseFormControl.invalid">Valider la
         question</button>
-
 </form>

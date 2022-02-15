@@ -27,7 +27,7 @@ export class NewQuestionComponent implements OnInit {
   detailFormControl = new FormControl('');
   themeFormControl = new FormControl('');
   typeFormControl = new FormControl('', [Validators.required]);
-  reponseFormControl = new FormControl('');
+  reponseFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
   nameForm: string;
   typeChoose: any;
@@ -36,7 +36,7 @@ export class NewQuestionComponent implements OnInit {
   reponse: any;
   reponseEvent = [];
 
-  reponses = [];
+  reponses = ['', ''];
   selectedTheme: Theme;
 
 
@@ -52,7 +52,6 @@ export class NewQuestionComponent implements OnInit {
   types: Type[] = [
     { value: 'radio', viewValue: 'Une seule reponse possible' },
     { value: 'checkbox', viewValue: 'Une où plusieurs reponses possibles' },
-    { value: 'boolean', viewValue: 'Oui où non, vrai ou faux ...' },
     { value: 'inputText', viewValue: 'Un champ de texte' },
     { value: 'note', viewValue: 'Une note entre deux valeurs' },
   ]
