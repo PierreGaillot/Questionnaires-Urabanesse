@@ -23,22 +23,26 @@ export class NewQuestionComponent implements OnInit {
 
   @Output() questionCreated = new EventEmitter<{ questionName: string, questionDetail: string, questionTheme: string, questionType: string, questionReponses: any }>();
 
-  nameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  detailFormControl = new FormControl('');
-  themeFormControl = new FormControl('');
-  typeFormControl = new FormControl('', [Validators.required]);
-  reponseFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
+
 
   nameForm: string;
   typeChoose: any;
   minNote: any;
   maxNote: any;
   reponse: any;
+  isInputTxtMaxChar: boolean = false;
   reponseEvent = [];
 
   reponses = ['', ''];
   selectedTheme: Theme;
 
+
+  nameFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  detailFormControl = new FormControl('');
+  themeFormControl = new FormControl('');
+  typeFormControl = new FormControl('', [Validators.required]);
+  reponseFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
+  exempleTextFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
   themes: Theme[] = [
     { value: 'urbanisme' },
@@ -56,6 +60,9 @@ export class NewQuestionComponent implements OnInit {
     { value: 'note', viewValue: 'Une note entre deux valeurs' },
   ]
 
+  logValue() {
+    console.log(this.isInputTxtMaxChar)
+  }
 
   constructor() {
 
@@ -67,8 +74,6 @@ export class NewQuestionComponent implements OnInit {
   assignTypeChoose(event: Event) {
     this.typeChoose = event;
   }
-
-
   addReponse(i: number) {
     this.reponses.push('Réponse ' + (this.reponses.length + 1))
   }

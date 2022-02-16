@@ -3,9 +3,31 @@
     <div class="text-question">
         <span class="title">{{ question.name }}</span>
         <span *ngIf="question.detail !== ''">( {{ question.detail }} )</span>
-        <span class="chip">{{ question.theme }}</span>
+        <span *ngIf="question.theme !== ''" class="chip">{{ question.theme }}</span>
     </div>
     <button mat-icon-button color="primary" aria-label="éditer la question">
         <i class="fa-solid fa-pen-to-square"></i>
     </button>
 </div>
+
+
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+            <span>{{indexQuestion + 1}}</span>
+            <mat-panel-title>
+                {{ question.name }}
+            </mat-panel-title>
+            <mat-panel-description>
+                ( {{ question.detail }} )
+            </mat-panel-description>
+            <span class="chip">{{ question.theme }}</span>
+            <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+        </mat-expansion-panel-header>
+        <p>This is the primary content of the panel.</p>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    </mat-expansion-panel>
+</mat-accordion>
