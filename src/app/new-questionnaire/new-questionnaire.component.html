@@ -14,7 +14,7 @@
         <input matInput type=" text" [formControl]="detailFormControl">
     </mat-form-field>
     <h3>{{questions.length}} Question(s)</h3>
-    <div class="cont-list small-gap questions-list">
+    <div class="cont-list questions-list">
         <!-- QUESTIONS LIST -->
         <app-question-item-list *ngFor="let question of questions; let i = index" [question]="question"
             [indexQuestion]="i">

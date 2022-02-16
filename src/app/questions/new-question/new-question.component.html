@@ -105,14 +105,25 @@
 
     <!--? INPUTTEXT -->
     <div *ngIf="typeChoose === 'inputText'" class="newReponse inputText">
-        <p>Un champ de texte.</p>
-        <mat-form-field>
-            <mat-label>Details</mat-label>
-            <input matInput type=" text">
+        <p>L'habitant pourra en entrer du texte. </p>
+        <p class="detail-type">( Vos devez ajouter une phrase d'exemple. )</p>
+
+        <!-- ? CHAMP DE REPONSE -->
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Exemples</mat-label>
+            <input matInput type="text" (input)="assignReponse($event, i)" [formControl]="exempleTextFormControl"
+                required>
+            <mat-error *ngIf="exempleTextFormControl.hasError('required')">
+                Vous devez ajouter des <strong>exemples</strong> d'au moins 6
+                lettres.
+            </mat-error>
         </mat-form-field>
+
         <div class="row small-gap">
         </div>
     </div>
+
+
 
     <!--? NOTE -->
     <div *ngIf="typeChoose === 'note'" class="newReponse note">
@@ -140,6 +151,7 @@
 
 
     <button mat-flat-button (click)="submitQuestion()" type="button" color="primary"
-        [disabled]="nameFormControl.invalid || typeFormControl.invalid || reponseFormControl.invalid">Valider la
+        [disabled]="nameFormControl.invalid || typeFormControl.invalid || ( reponseFormControl.invalid && exempleTextFormControl.invalid )">Valider
+        la
         question</button>
 </form>

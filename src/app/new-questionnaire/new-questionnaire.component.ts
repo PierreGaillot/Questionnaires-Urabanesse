@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 
 
@@ -22,8 +23,7 @@ export class NewQuestionnaireComponent implements OnInit {
   questionnaires = [];
 
 
-  constructor(
-  ) { }
+  constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -38,7 +38,11 @@ export class NewQuestionnaireComponent implements OnInit {
       reponses: questionData.questionReponses
     });
     this.isEditNewQuestion = false
-    console.log(this.questions)
+  }
+
+
+  openSnackBar(snackBarTitle, durationInSeconds) {
+    this._snackBar.open(snackBarTitle + " a bien été créé !", 'Fermer', { duration: durationInSeconds * 1000 });
   }
 
   sendQuestionnaire() {
@@ -47,7 +51,10 @@ export class NewQuestionnaireComponent implements OnInit {
       detail: this.detailFormControl.value,
       question: this.questions
     })
-    console.log(this.questionnaires)
+    console.log(this.questionnaires);
+    this.openSnackBar(this.nameFormControl.value, 3);
   }
+
+
 
 }

@@ -1,14 +1,36 @@
-<div id="top-nav-bar" class="row small-gap">
-  <div class="left-side row small-gap">
-    <button mat-flat-button>espace habitant</button>
-    <button mat-flat-button>espace pilote</button>
-    <button mat-flat-button>espace commanditaire</button>
-  </div>
-  <div class="right-side row large-gap">
-    <span class="circle-btn">Nom UTILISATEUR</span>
-    <div class="parameter">
-      <i class="fa-solid fa-gear"></i>
-    </div>
-  </div>
+<mat-toolbar>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu">
+    <i class="fa-solid fa-bars fa-lg"></i>
+  </button>
+  <mat-menu #menu="matMenu">
 
-</div>
+    <button mat-menu-item disabled>
+      <i class="fa-solid fa-folder"></i>
+      <span>Changer de projet</span>
+    </button>
+
+    <button mat-menu-item disabled>
+      <i class="fa-solid fa-bell"></i>
+      <span>Voir les notifications</span>
+    </button>
+
+    <button mat-menu-item disabled>
+      <i class="fa-solid fa-heart"></i>
+      <span>Questionnaires Favoris</span>
+    </button>
+
+    <button mat-menu-item>
+      <i class="fa-solid fa-square-plus"></i>
+      <span>Créer un questionnaire</span>
+    </button>
+
+  </mat-menu>
+
+  <span><strong>Questionnaire</strong> Urabnesse</span>
+
+  <span class="menu-spacer"></span>
+
+  <button mat-icon-button class="example-icon" aria-label="Menu">
+    <i class="fa-solid fa-user fa-lg"></i>
+  </button>
+</mat-toolbar>
