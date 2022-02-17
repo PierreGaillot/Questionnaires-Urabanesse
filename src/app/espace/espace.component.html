@@ -11,7 +11,15 @@
   <button class="create-questionnaire" mat-flat-button color="primary">Créer un questionnaire</button>
 </div>
 <span class="separateur"></span>
+<div class="question-list cont-list">
 
+  <app-questionnaire-item-list *ngFor="let questionnaire of questionnaires" [questionnaire]="questionnaire"
+    [mainTheme]="themesQuestionnaireSort(questionnaire)[0].name">
+  </app-questionnaire-item-list>
+
+</div>
+
+<span class="separateur"></span>
 <app-detail-questionnaire></app-detail-questionnaire>
 
 <div class="card-questionnaire">

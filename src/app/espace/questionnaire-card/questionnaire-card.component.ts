@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Questionnaire } from 'src/app/ressources/questionnaire';
+import { Questionnaire } from 'src/app/questionnaires/new-questionnaire/questionnaire.model';
 @Component({
   selector: 'app-questionnaire-card',
   templateUrl: './questionnaire-card.component.html',

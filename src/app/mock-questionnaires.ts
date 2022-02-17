@@ -1,47 +1,324 @@
-import { Questionnaire } from "./ressources/questionnaire";
+import { Questionnaire } from "./questionnaires/new-questionnaire/questionnaire.model"
+
+
 
 export const QUESTIONNAIRES: Questionnaire[] = [
 
+    //! Questionnaire 01 
+
+
     {
-        title: 'Voici un titre pas commun pour un questionnaire.',
-        details: '(il va y en avoir d\'autres !)',
-        theme: 'urbain',
-        estimTemps: 25,
-        nbQuestions: 19,
+        name: "Que pensez vous des travaux qui ont été fait récemment et de votre avis sur les futures constructions?",
+        detail: 'Les details qui vont avec ... ',
+        questions: [
+            {
+                name: 'Que pensez-vous des jeunes qui restent en bas des immeubles ?',
+                detail: 'des jeunes de moins de 20 ans',
+                theme: 'urbain',
+                type: 'radio',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+        ]
     },
 
+
+    // //! Questionnaire 02 
+
+
     {
-        title: 'Donnez votre avis sur la qualité de nos services !',
-        details: '(et lachez-vous, ça reste entre nous.)',
-        theme: 'urbain',
-        estimTemps: 15,
-        nbQuestions: 8,
+        name: "Comment voyez vous l'habitation de demain?",
+        detail: 'Les details qui vont avec ... ',
+        questions: [
+            {
+                name: 'Que pensez-vous des jeunes qui restent en bas des immeubles ?',
+                detail: 'des jeunes de moins de 20 ans',
+                theme: 'urbain',
+                type: 'radio',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme', type:
+                    'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+        ]
     },
 
+    //! Questionnaire 03 
+
+
     {
-        title: 'Trouver un titre de questionnaire c\'est bien plus chiant que je le pensais !',
-        details: '(le pire c\'est que j\'ai prevus 7 questionnaires.)',
-        theme: 'urbain',
-        estimTemps: 10,
-        nbQuestions: 11,
+        name: "Comment imaginez vous le futur habitat dans cette zone?",
+        detail: 'Les details qui vont avec ... ',
+        questions: [
+            {
+                name: 'Que pensez-vous des jeunes qui restent en bas des immeubles ?',
+                detail: 'des jeunes de moins de 20 ans',
+                theme: 'urbain',
+                type: 'radio',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme', type:
+                    'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+
+        ]
     },
 
+    //! Questionnaire 04 
 
 
     {
-        title: 'Encore trois titre à trouver, un veritable enfer ?',
-        details: '(oui plutot, je commence à galerer serieux)',
-        theme: 'urbain',
-        estimTemps: 5,
-        nbQuestions: 8,
-    },
-
-    {
-        title: 'Donnez votre avis sur les usages du lorem-ipsum dans le cadre d\'un generateur de question.',
-        details: '(vous n\'y verrez que du feu, promis.)',
-        theme: 'urbain',
-        estimTemps: 15,
-        nbQuestions: 13,
+        name: "Nous voulons donc avoir voter avis sur queslques questions ...",
+        detail: 'Les details qui vont avec ... ',
+        questions: [
+            {
+                name: 'Que pensez-vous des jeunes qui restent en bas des immeubles ?',
+                detail: 'des jeunes de moins de 20 ans',
+                theme: 'urbain',
+                type: 'radio',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous des vieux qui font le courses le dimanche',
+                detail: 'ils font tous ça !',
+                theme: 'civisme',
+                type: 'checkbox',
+                reponses: [
+                    'ils sont sympas',
+                    'je ne les aimes pas !',
+                    'ils me sont totalement indifferent',
+                    'ils cassent les couilles'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de votre quatier ?',
+                detail: 'donnez votre avis',
+                theme: 'civisme',
+                type: 'input',
+                reponses: [
+                    'en quelques mots.'
+                ]
+            },
+        ]
     },
 
 

@@ -19,8 +19,8 @@
     <mat-form-field>
         <mat-label>Thème</mat-label>
         <mat-select [formControl]="themeFormControl">
-            <mat-option *ngFor="let theme of themes" [value]="theme.value">
-                {{theme.value}}
+            <mat-option *ngFor="let theme of themes; let i = index" [value]="theme">
+                {{theme}}
             </mat-option>
         </mat-select>
     </mat-form-field>

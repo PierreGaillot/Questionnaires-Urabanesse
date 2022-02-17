@@ -1,34 +1,39 @@
 <div>
-    <mat-toolbar color="primary" class="toolbar">
-      <span>details du questionnaire</span>
-      <mat-icon>close</mat-icon>
-    </mat-toolbar>
-    <div class="content-detail">
-      <div class="column small-gap cont-item-detail">
-        <div class="row">
-          <h1>Titre du Questionnaire</h1>
-        </div>
-        <div class="row">
-          <p>
-            ( Les detail du questionnaires )
-          </p>
-        </div>
-        <div class="separateur-questionnaire"></div>
-        <div style="width: 100%;">
-
-          <!-- <app-question-item-list></app-question-item-list> -->
-
-          
-        </div>
-
-
-    
-    
+  <mat-toolbar color="primary" class="toolbar">
+    <span>détails du questionnaire</span>
+    <mat-icon>close</mat-icon>
+  </mat-toolbar>
+  <div class="content-detail">
+    <div class="column small-gap cont-item-detail">
+      <div class="row">
+        <h1>{{ questionnaire.name }}</h1>
       </div>
-      <p>
-          liste des question 0/0
-      </p>
+      <div class="row">
+        <p>
+          ({{ questionnaire.detail }})
+        </p>
+      </div>
+      <div class="row">
+        <mat-chip-list>
+          <mat-chip>{{ principalTheme }}</mat-chip>
+        </mat-chip-list>
+      </div>
+      <div class="separateur-questionnaire"></div>
+      <div style="width: 100%;">
+
+        <app-question-item-list *ngFor="let question of questionnaire.questions; let i = index" [question]="question"
+          [indexQuestion]="i">
+        </app-question-item-list>
+
+      </div>
+
+
+
+
     </div>
+    <p class="creation-date">
+      crée le 01/01/2022
+    </p>
+  </div>
 
 </div>
-

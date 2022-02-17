@@ -4,16 +4,17 @@
   <div class="cont-questionnaire-item">
     <div class="column">
       <span class="title">
-        {{questionnaire.title}}
+        {{questionnaire.name}}
       </span>
 
-      <span class="chip">
-        {{questionnaire.theme}}
-      </span>
+      <mat-chip-list>
+        <mat-chip>theme</mat-chip>
+      </mat-chip-list>
+
     </div>
     <div class="column">
       <div class="row small-gap bigger">
-        <span>{{questionnaire.nbQuestions}}</span>
+        <span>{{questionnaire.questions.length}}</span>
         <i class="fa-solid fa-circle-question"></i>
       </div>
       <div class="row small-gap">

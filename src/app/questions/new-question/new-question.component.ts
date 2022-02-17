@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-
+import { themes } from '../../ressources/theme.list';
 
 interface Theme {
   value: string;
@@ -44,12 +44,7 @@ export class NewQuestionComponent implements OnInit {
   reponseFormControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
   exempleTextFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
 
-  themes: Theme[] = [
-    { value: 'urbanisme' },
-    { value: 'environnement' },
-    { value: 'quartier' },
-    { value: 'civisme' },
-  ];
+  themes: any = themes.sort();
 
   questions = [];
 
