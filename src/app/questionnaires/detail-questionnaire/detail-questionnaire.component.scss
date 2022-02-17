@@ -1,0 +1,23 @@
+.cont-item-detail{
+    padding: 1em;
+    margin: 0 1em 2em 1em;
+
+}
+
+.separateur-questionnaire{
+    display: block;
+    background-color: #dbdbdb;
+    height: 0.1em;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.content-detail{
+    background-color: #f3f3f3;
+}
+
+.toolbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

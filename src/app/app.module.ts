@@ -8,11 +8,12 @@ import { QuestionnaireCardComponent } from './espace/questionnaire-card/question
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatExpansionModule, MatIconModule, MatInputModule, MatMenuModule, MatSelectModule, MatSlideToggleModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
-import { NewQuestionnaireComponent } from './new-questionnaire/new-questionnaire.component';
+import { NewQuestionnaireComponent } from './questionnaires/new-questionnaire/new-questionnaire.component';
 import { NewQuestionComponent } from './questions/new-question/new-question.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuestionItemListComponent } from './questions/question-item-list/question-item-list.component';
 import { MatListModule } from '@angular/material';
+import { DetailQuestionnaireComponent } from './questionnaires/detail-questionnaire/detail-questionnaire.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatListModule } from '@angular/material';
     NewQuestionnaireComponent,
     NewQuestionComponent,
     QuestionItemListComponent,
+    DetailQuestionnaireComponent,
 
   ],
   imports: [

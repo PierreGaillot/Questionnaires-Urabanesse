@@ -12,8 +12,8 @@
   </mat-expansion-panel-header>
 
   <mat-list>
-    <div mat-subheader *ngIf="question.type === 'checkbox'">Parmi toutes les réponses proposées, l'habitant ne pourra en choisir qu'une.</div>
-    <div mat-subheader *ngIf="question.type === 'radio'">Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs.</div>
+    <div mat-subheader *ngIf="question.type === 'radio'">Parmi toutes les réponses proposées, l'habitant ne pourra en choisir qu'une.</div>
+    <div mat-subheader *ngIf="question.type === 'checkbox'">Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs.</div>
     <div mat-subheader *ngIf="question.type === 'input'">L'habitant pourra en entrer du texte.</div>
 
     <div *ngFor="let reponse of question.reponses">
@@ -24,7 +24,7 @@
         <mat-icon *ngIf="question.type === 'input'" class="reponse-icon" mat-list-icon>description</mat-icon>
         <div mat-line>{{reponse}}</div>
       </mat-list-item>
-      <mat-divider></mat-divider>
+      <!-- <mat-divider></mat-divider> -->
     </div>
 
   </mat-list>

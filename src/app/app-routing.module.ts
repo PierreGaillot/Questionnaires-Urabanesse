@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EspaceComponent } from './espace/espace.component';
-import { NewQuestionnaireComponent } from './new-questionnaire/new-questionnaire.component';
+import { NewQuestionnaireComponent } from './questionnaires/new-questionnaire/new-questionnaire.component';
 
 
 const routes: Routes = [
