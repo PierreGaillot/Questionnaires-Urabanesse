@@ -7,12 +7,12 @@ import { EspaceComponent } from './espace/espace.component';
 import { QuestionnaireCardComponent } from './espace/questionnaire-card/questionnaire-card.component';
 import { TopNavBarComponent } from './top-nav-bar/top-nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatExpansionModule, MatInputModule, MatMenuModule, MatSelectModule, MatSlideToggleModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
+import { MatButtonModule, MatExpansionModule, MatIconModule, MatInputModule, MatMenuModule, MatSelectModule, MatSlideToggleModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
 import { NewQuestionnaireComponent } from './new-questionnaire/new-questionnaire.component';
 import { NewQuestionComponent } from './questions/new-question/new-question.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuestionItemListComponent } from './questions/question-item-list/question-item-list.component';
-
+import { MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,8 @@ import { QuestionItemListComponent } from './questions/question-item-list/questi
     MatSnackBarModule,
     MatSlideToggleModule,
     MatExpansionModule,
+    MatListModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

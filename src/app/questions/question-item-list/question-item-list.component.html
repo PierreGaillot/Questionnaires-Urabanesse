@@ -1,33 +1,32 @@
-<div class="row item-question">
+<mat-expansion-panel hideToggle class="no-drop-shadow">
+  <mat-expansion-panel-header class="row item-question">
     <div class="indexQuestion">{{indexQuestion + 1}}</div>
     <div class="text-question">
-        <span class="title">{{ question.name }}</span>
-        <span *ngIf="question.detail !== ''">( {{ question.detail }} )</span>
-        <span *ngIf="question.theme !== ''" class="chip">{{ question.theme }}</span>
+      <span class="title">{{ question.name }}</span>
+      <span *ngIf="question.detail !== ''">( {{ question.detail }} )</span>
+      <span *ngIf="question.theme !== ''" class="chip">{{ question.theme }}</span>
     </div>
     <button mat-icon-button color="primary" aria-label="éditer la question">
-        <i class="fa-solid fa-pen-to-square"></i>
+      <i class="fa-solid fa-pen-to-square"></i>
     </button>
-</div>
+  </mat-expansion-panel-header>
 
+  <mat-list>
+    <div mat-subheader *ngIf="question.type === 'checkbox'">Parmi toutes les réponses proposées, l'habitant ne pourra en choisir qu'une.</div>
+    <div mat-subheader *ngIf="question.type === 'radio'">Parmi toutes les réponses proposées, l'habitant pourra en choisir plusieurs.</div>
+    <div mat-subheader *ngIf="question.type === 'input'">L'habitant pourra en entrer du texte.</div>
 
-<mat-accordion>
-    <mat-expansion-panel hideToggle>
-        <mat-expansion-panel-header>
-            <span>{{indexQuestion + 1}}</span>
-            <mat-panel-title>
-                {{ question.name }}
-            </mat-panel-title>
-            <mat-panel-description>
-                ( {{ question.detail }} )
-            </mat-panel-description>
-            <span class="chip">{{ question.theme }}</span>
-            <button mat-icon-button color="accent" aria-label="Example icon-button with a heart icon">
-                <i class="fa-solid fa-pen-to-square"></i>
-            </button>
-        </mat-expansion-panel-header>
-        <p>This is the primary content of the panel.</p>
-    </mat-expansion-panel>
-    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-    </mat-expansion-panel>
-</mat-accordion>
+    <div *ngFor="let reponse of question.reponses">
+      <mat-list-item>
+        <mat-icon *ngIf="question.type === 'checkbox'" class="reponse-icon" mat-list-icon>check_box_outline_blank
+        </mat-icon>
+        <mat-icon *ngIf="question.type === 'radio'" class="reponse-icon" mat-list-icon>radio_button_unchecked</mat-icon>
+        <mat-icon *ngIf="question.type === 'input'" class="reponse-icon" mat-list-icon>description</mat-icon>
+        <div mat-line>{{reponse}}</div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+
+  </mat-list>
+
+</mat-expansion-panel>

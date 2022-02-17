@@ -26,13 +26,7 @@ export const QUESTIONNAIRES: Questionnaire[] = [
         nbQuestions: 11,
     },
 
-    {
-        title: 'Que pensez-vous des racailles qui dealent du shit en bas de chez vous ?',
-        details: '(personne le lit les details)',
-        theme: 'urbain',
-        estimTemps: 30,
-        nbQuestions: 40,
-    },
+
 
     {
         title: 'Encore trois titre à trouver, un veritable enfer ?',

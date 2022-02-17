@@ -19,7 +19,12 @@ export class NewQuestionnaireComponent implements OnInit {
 
   isEditNewQuestion: boolean = true;
 
-  questions = [];
+  questions = [
+    {name: 'Que pensez-vous des jeunes qui restent en bas des immeubles ?', detail: 'des jeunes de moins de 20 ans', theme: 'urbain', type: 'radio', reponses: ['ils sont sympas', 'je ne l\'ai aimes pas !' , 'ils me sont totalement indifferent']},
+    {name: 'Que pensez-vous des vieux qui font le courses le dimanche', detail: 'ils font tous ça !', theme: 'civisme', type: 'checkbox', reponses: ['ils sont sympas', 'je ne l\'ai aimes pas !' , 'ils me sont totalement indifferent', 'ils cassent les couilles']},
+    {name: 'Que pensez-vous de votre quatier ?', detail: 'donnez votre avis', theme: 'civisme', type: 'input', reponses: ['en quelques mots.']},
+];
+
   questionnaires = [];
 
 
