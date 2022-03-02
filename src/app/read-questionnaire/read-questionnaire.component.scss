@@ -1,0 +1,16 @@
+#read-questionnaire{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 2em;
+    background-color: #f2f2f2;
+}
+
+
+.cont-questionnaire{
+    gap: 1em;
+}
+
+.question{
+    margin: 1em 0;
+}

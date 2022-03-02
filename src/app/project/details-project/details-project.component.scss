@@ -1,0 +1,96 @@
+#cont-header {}
+
+
+#cont-content {
+  background-color: white;
+  padding: 2em;
+  display: grid;
+  grid-template-columns: 67% 33%;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
+    "projet-title      projet-title"
+    "details           timeline"
+    "questionnaires    timeline"
+    ;
+}
+
+.projet-title{
+  grid-area: projet-title;
+}
+
+.details {
+  grid-area: details;
+  padding: 2em 0;
+}
+
+.timeline{
+  grid-area: timeline;
+}
+
+.questionnaires{
+  grid-area: questionnaires;
+}
+
+//RESPONSIVE
+@media screen and (max-width:415px) {
+  #cont-content {
+    padding: 0em;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+      "projet-title projet-title"
+      "details timeline"
+      "questionnaires questionnaires"
+      ;
+  }
+  .cont-img-header {
+    height: 10em;
+  }
+  .cont-img-header > img {
+    height:auto;
+  }
+}
+
+.details >p{
+  margin-left: 0.5em;
+}
+
+.cont-img-header {
+  height: 15em;
+  overflow: hidden;
+}
+
+.header-image {
+  width: 100%;
+}
+
+.no-questionnaire {
+  margin: 1em 0;
+  text-align: center;
+  border: 1px solid rgb(180, 180, 180);
+  color: gray;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: rgb(241, 241, 241);
+}
+
+.questionnaire {
+  display:  flex;
+  flex-direction: row;
+  color: rgb(36, 36, 36);
+  padding: 1em;
+  background-color: rgb(241, 241, 241);
+}
+
+
+h1{
+    font-size: 4em;
+    text-align: center;
+    padding: 0.5em 0;
+    background-color: rgb(228, 228, 228);
+}
+
+.file-icon{
+align-self: center;
+padding-right: 0.5em;
+}

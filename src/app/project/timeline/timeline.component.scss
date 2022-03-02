@@ -1,0 +1,16 @@
+.cont-end-date{
+    margin-left: 2em;
+    padding-bottom: 2em;
+    border-left: 2px dashed gray;
+}
+
+.cont-timeline{
+    margin: 2em 0;
+}
+
+@media screen and (max-width:415px){
+    .cont-end-date{
+        margin-left: 1em;
+    }
+}
+

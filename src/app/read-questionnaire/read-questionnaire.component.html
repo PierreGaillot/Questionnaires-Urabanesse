@@ -1,0 +1,9 @@
+<div id="read-questionnaire">
+  <div class="infos-questionnaire">
+    <h1>{{questionnaire.name}}</h1>
+    <p>{{ questionnaire.detail }}</p>
+
+    <div class="cont-questionnaire">
+      <app-read-question *ngFor="let question of questionnaire.questions; let i = index" [question]="question" [index]="i+1" [nbQuestions]="questionnaire.questions.length"></app-read-question>
+    </div>
+</div>

@@ -23,6 +23,17 @@ export const QUESTIONNAIRES: Questionnaire[] = [
                 ]
             },
             {
+                name: 'Alexis Bernard est-il le plus bel homme de l\'univers ?',
+                detail: '(nous n\'avons aucun doute sur votre réponses.)',
+                theme: 'urbain',
+                type: 'radio',
+                reponses: [
+                    'de ouffff il est trop beau',
+                    'je rêve toutes les nuit de cet homme',
+                    'J\'éprouve des sentiments particulèrement puissants pour cette homme'
+                ]
+            },
+            {
                 name: 'Que pensez-vous des vieux qui font le courses le dimanche',
                 detail: 'ils font tous ça !',
                 theme: 'civisme',
@@ -41,6 +52,15 @@ export const QUESTIONNAIRES: Questionnaire[] = [
                 type: 'input',
                 reponses: [
                     'en quelques mots.'
+                ]
+            },
+            {
+                name: 'Que pensez-vous de l`\'ambiance de votre quatier ?',
+                detail: 'donnez une note',
+                theme: 'quartier',
+                type: 'note',
+                reponses: [
+                    '0', '10'
                 ]
             },
         ]

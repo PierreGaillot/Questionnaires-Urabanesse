@@ -1,4 +1,5 @@
 export class Question {
+    
     public name: string;
     public detail: string;
     public theme: string;

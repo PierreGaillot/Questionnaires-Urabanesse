@@ -13,6 +13,14 @@
 <span class="separateur"></span>
 <div class="question-list cont-list">
 
+
+
+<app-new-project></app-new-project>
+<app-details-project [projet]="projet"></app-details-project>
+
+
+<app-read-questionnaire [questionnaire]="questionnaire"></app-read-questionnaire>
+
   <app-questionnaire-item-list *ngFor="let questionnaire of questionnaires" [questionnaire]="questionnaire"
     [mainTheme]="themesQuestionnaireSort(questionnaire)[0].name">
   </app-questionnaire-item-list>
@@ -34,7 +42,6 @@
     </span>
   </div>
 </div>
-
 
 <div class=" row-warp">
   <div *ngFor="let questionnaire of questionnaires">

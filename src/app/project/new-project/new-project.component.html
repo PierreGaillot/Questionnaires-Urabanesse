@@ -1,0 +1,30 @@
+<h1>Nouveau Projet</h1>
+<form id="project-form">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nom du quartier</mat-label>
+    <input matInput placeholder="Nouveau Quartier" value="">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Pitch</mat-label>
+    <textarea matInput cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Début du Projet</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Lien de l'image du quartier</mat-label>
+    <input matInput placeholder="Nouveau Quartier" value="">
+  </mat-form-field>
+
+  <!-- <div class="cont-questionnaire-items">
+      <app-questionnaire-item-list></app-questionnaire-item-list>
+  </div> -->
+
+</form>

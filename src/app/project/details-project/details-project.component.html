@@ -1,0 +1,43 @@
+<div id="cont-header">
+  <div class="cont-img-header">
+    <img src="{{projet.imgPath}}" class="header-image" alt="">
+  </div>
+</div>
+
+
+<div id="cont-content">
+
+  <h1 class="projet-title">{{projet.title}}</h1>
+
+  <div class="details">
+    <p>
+      {{projet.details}}
+    </p>
+  </div>
+
+
+
+  <div class="timeline">
+    <app-timeline [dates]="projet.dates"></app-timeline>
+  </div>
+
+
+  <div class="questionnaires">
+
+    <div *ngIf="projet.questionnaires.length === 0" class="no-questionnaire">
+      <p>Ce projet n'a pas encore de questionnaire.</p>
+    </div>
+
+    <div *ngIf="projet.questionnaires.length > 0">
+      <div *ngFor="let questionnaire of projet.questionnaires" class="questionnaire">
+        <mat-icon class="file-icon">article</mat-icon>
+        <div>
+          <p><strong> {{questionnaire.name}}</strong></p>
+          <p>{{questionnaire.questions.length}} questions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
